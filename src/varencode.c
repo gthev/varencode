@@ -263,7 +263,7 @@ int vardecode(struct vardecode_ctx ctx) {
 			current_encoded_bit = 7;
 			encoded_current_idx++;
 			if(encoded_current_idx < ctx.encoded_length && idx_entity >= ctx.nmemb) return -EFAULT;
-			if(encoded_current_idx >= ctx.encoded_length && is_not_last_byte) break;
+			if(encoded_current_idx >= ctx.encoded_length && !is_not_last_byte) break;
 			// if the last byte begins with a '1', then the stream is ill-formed:
 			// we'll detect it at the beginning of the loop and return -ECHRNG;
 		}
